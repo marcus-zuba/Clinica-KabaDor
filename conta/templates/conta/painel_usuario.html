@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Painel de usuário{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/tabela.css/' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css/' %}">
+
+  <div class="central">
+    <h1>Painel de usuário</h1>
+    <p>Bem vindo ao painel da sua conta!               
+      {% if messages %}
+      {% for message in messages %}
+      <p class="{{message.tags}}">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    </p>
+    <a href="trocar_senha" class="button">Redefinir Senha</a>
+    <a href="atualizar/" class="button">Editar informações pessoais</a>
+    <a href="/conta/logout" class="button">Desconectar</a>
+  </div>
+{% endblock %}

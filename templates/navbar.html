@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{%  static 'css/navbar.css' %}">
+
+<div id=nav-bar-container> 
+    
+    <div id="menu-right">
+    <li><a href="/" class="menu-button">Home</a></li>
+    <li><a href="/clinica/galeria" class="menu-button">Galeria</a></li>    
+    {% if request.user.is_authenticated %}
+    <div class="right-menu-container">
+      <div class="right-menu">
+        <li><a href="/conta" class="menu-button">{{ request.user.username }}</a></li>
+        </div>
+      </div>
+    </div>
+    {% else %}
+      <li><a href="/conta/login" class="menu-button">Login</a></li>
+    {% endif %}
+    </div>
+</div>
