@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastrar Paciente{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <div class="form-group">
+    <h1>Cadastrar novo paciente</h1>
+    <p>Utilize o seguinte formulário:</p>
+    <form action="." method="post">
+    <h2>Dados pessoais</h2>
+    {{ pessoa_form.as_p }}
+    <h2>Dados clínicos</h2>
+    {{ paciente_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Cadastrar paciente"></p>
+    </form>
+  <div></div>
+{% endblock %}

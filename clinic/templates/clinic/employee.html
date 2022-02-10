@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Pacientes{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/tabela.css/' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css/' %}">
+
+  <div class="central">
+  <h1>Funcionários Administrativos cadastrados</h1>
+  {% if employees %}
+  <p>Esses são todos os funcionários administrativos cadastrados no sistema:</p>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Data de Contratação</th>
+        <th>Salário</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+      <tr>
+        <td>{{employee.pessoa.nome}}</td>
+        <td>{{employee.pessoa.email}}</td>
+        <td>{{employee.pessoa.telefone}}</td>
+        <td>{{employee.pessoa.cep}}</td>
+        <td>{{employee.pessoa.logradouro}}</td>
+        <td>{{employee.pessoa.bairro}}</td>
+        <td>{{employee.pessoa.cidade}}</td>
+        <td>{{employee.pessoa.estado}}</td>
+        <td>{{employee.data_contrato}}</td>
+        <td>{{employee.salario}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Não há funcionários administrativos cadastrados no sistema!</p>
+  {% endif %}
+
+  <h1>Funcionários Médicos cadastrados</h1>
+  {% if doctors %}
+  <p>Esses são todos os funcionários médicos cadastrados no sistema:</p>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Data de Contratação</th>
+        <th>Salário</th>
+        <th>Especialidade</th>
+        <th>CRM</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for doctor in doctors %}
+      <tr>
+        <td>{{doctor.pessoa.nome}}</td>
+        <td>{{doctor.pessoa.email}}</td>
+        <td>{{doctor.pessoa.telefone}}</td>
+        <td>{{doctor.pessoa.cep}}</td>
+        <td>{{doctor.pessoa.logradouro}}</td>
+        <td>{{doctor.pessoa.bairro}}</td>
+        <td>{{doctor.pessoa.cidade}}</td>
+        <td>{{doctor.pessoa.estado}}</td>
+        <td>{{doctor.data_contrato}}</td>
+        <td>{{doctor.salario}}</td>
+        <td>{{doctor.medico.especialidade}}</td>
+        <td>{{doctor.medico.crm}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Não há funcionários médicos cadastrados no sistema!</p>
+  {% endif %}
+  </div>
+{% endblock %}

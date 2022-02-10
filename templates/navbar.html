@@ -1,20 +1,28 @@
 {% load static %}
 <link rel="stylesheet" href="{%  static 'css/navbar.css' %}">
 
-<div id=nav-bar-container> 
-    
-    <div id="menu-right">
-    <li><a href="/" class="menu-button">Home</a></li>
-    <li><a href="/clinica/galeria" class="menu-button">Galeria</a></li>    
+<div id=nav-bar-container>
+  <div id="menu-right"> 
     {% if request.user.is_authenticated %}
-    <div class="right-menu-container">
-      <div class="right-menu">
-        <li><a href="/conta" class="menu-button">{{ request.user.username }}</a></li>
-        </div>
-      </div>
-    </div>
+      <li><a href="/clinica/admin_home/" class="menu-button">Admin Home</a></li>
+      <li><a href="/conta/cadastrar_funcionario" class="menu-button">Novo Funcionário</a></li>
+      <li><a href="/conta/cadastrar_paciente" class="menu-button">Novo Paciente</a></li>    
+      <li><a href="/clinica/funcionarios" class="menu-button">Listar Funcionários</a></li>    
+      <li><a href="/clinica/pacientes" class="menu-button">Listar Pacientes</a></li>    
+      <li><a href="/clinica/enderecos" class="menu-button">Listar Endereços</a></li>
+      <li><a href="/" class="menu-button">Listar Todos os Agendamentos</a></li>
     {% else %}
+      <li><a href="/" class="menu-button">Home</a></li>
+      <li><a href="/clinica/galeria" class="menu-button">Galeria</a></li>    
+      <li><a href="/clinica/novo_endereco" class="menu-button">Novo Endereço</a></li>    
+      <li><a href="/clinica/agendamento" class="menu-button">Agendamento</a></li>    
       <li><a href="/conta/login" class="menu-button">Login</a></li>
     {% endif %}
-    </div>
+    {% if request.user.is_authenticated and request.user.pessoa.funcionario.medico %}
+      <li><a href="/" class="menu-button">Listar Meus Agendamentos</a></li>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+      <li><a href="/conta/logout" class="menu-button">Desconectar</a></li>
+    {% endif %}
+  </div>
 </div>

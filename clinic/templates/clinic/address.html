@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Endereços{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/tabela.css/' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css/' %}">
+
+  <div class="central">
+  <h1>Base de endereços</h1>
+  {% if addresses %}
+  <p>Esses são todos os endereços cadastrados no sistema:</p>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in addresses %}
+      <tr>
+        <td>{{address.cep}}</td>
+        <td>{{address.logradouro}}</td>
+        <td>{{address.bairro}}</td>
+        <td>{{address.cidade}}</td>
+        <td>{{address.estado}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Não há endereços cadastrados no sistema!</p>
+  {% endif %}
+  </div>
+{% endblock %}

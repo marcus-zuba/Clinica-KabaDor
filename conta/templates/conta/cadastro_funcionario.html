@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastrar Funcionário{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <div class="form-group">
+    <h1>Cadastrar novo funcionário</h1>
+    <p>Utilize o seguinte formulário:</p>
+    <form action="." method="post" id="cadastro-funcionario">
+    <h2>Dados para login</h2>
+    {{ user_form.as_p }}
+    <h2>Dados pessoais</h2>
+    {{ pessoa_form.as_p }}
+    <h2>Dados profissionais</h2>
+    <label for="tipo_funcionario">Selecione o tipo de funcionário:</label>
+    <select name="tipo_funcionario" id="tipo_funcionario" 
+    onchange="atualizarForm()" form="cadastro-funcionario" style="width:50%;">
+      <option value="administrativo">Funcionário Administrativo</option>
+      <option value="medico">Funcionário Médico</option>
+    </select>
+    {{ funcionario_form.as_p }}
+    <div id="form-medico" hidden>
+      {{ medico_form.as_p }}    
+    </div>
+    {% csrf_token %}
+    <p><input type="submit" value="Cadastrar Funcionario"></p>
+    </form>
+  <div></div>
+  <script src="{% static 'js/form.js' %}"></script>
+{% endblock %}

@@ -125,9 +125,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static/"),)
 
 LOGIN_URL = 'conta:login'
-LOGIN_REDIRECT_URL = 'cardapio'
+LOGIN_REDIRECT_URL = 'clinica:admin_home'
 LOGOUT_URL = 'conta:logout'
-LOGOUT_REDIRECT_URL = 'cardapio'
+LOGOUT_REDIRECT_URL = 'clinica:home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'redefinir_senha@clinicakabador.com'

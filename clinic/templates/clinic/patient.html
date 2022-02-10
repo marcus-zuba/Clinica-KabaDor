@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Pacientes{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/tabela.css/' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css/' %}">
+
+  <div class="central">
+  <h1>Pacientes cadastrados</h1>
+  {% if persons %}
+  <p>Esses são todos os pacientes cadastrados no sistema:</p>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>CEP</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Peso</th>
+        <th>Altura</th>
+        <th>Tipo Sanguíneo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in persons %}
+      <tr>
+        <td>{{person.nome}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.telefone}}</td>
+        <td>{{person.cep}}</td>
+        <td>{{person.logradouro}}</td>
+        <td>{{person.bairro}}</td>
+        <td>{{person.cidade}}</td>
+        <td>{{person.estado}}</td>
+        <td>{{person.paciente.peso}}</td>
+        <td>{{person.paciente.altura}}</td>
+        <td>{{person.paciente.tipo_sanguineo}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>Não há pacientes cadastrados no sistema!</p>
+  {% endif %}
+  </div>
+{% endblock %}

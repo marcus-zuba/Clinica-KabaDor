@@ -1,23 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Create an account{% endblock %}
+{% block title %}Novo Endereço{% endblock %}
 
 {% load static %}
 
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <div class="form-group">
-    <h1>Crie uma conta</h1>
-    <p>Se cadastre utilizando o seguinte formulário:</p>
+    <h1>Cadastre um novo endereço</h1>
+    <p>Cadastre um novo endereço na base de endereços utilizando o seguinte formulário:</p>
     <form action="." method="post">
-    <h2>Dados para login</h2>
-    {{ user_form.as_p }}
-    <h2>Dados pessoais</h2>
-    {{ conta_form.as_p }}
     <h2>Endereço</h2>
     {{ endereco_form.as_p }}
     {% csrf_token %}
-    <p><input type="submit" value="Criar conta"></p>
+    <p><input type="submit" value="Cadastrar Endereço"></p>
     </form>
   <div></div>
 {% endblock %}
