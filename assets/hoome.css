@@ -95,10 +95,6 @@ nav {
   transition: transform 400ms ease-in-out;
 }
 
-#navbar{
-  display: flex;
-}
-
 nav ul {
   margin: 0;
   padding: 0;
@@ -113,7 +109,7 @@ nav li {
 nav a {
   color: rgb(81, 204, 163);
   text-decoration: none;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
