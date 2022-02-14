@@ -4,11 +4,11 @@
 <div id="navbar">
   <h1 class="logo"><img src="https://iili.io/0SXGRe.md.png" id="logokd"></h1>
   <input type="checkbox" id="nav-toggle" class="nav-toggle">
-  
+  <span style="padding-right: 30%;"></span>
+
   <nav class="menu-right">
     <ul>
       {% if request.user.is_authenticated %}
-        <li><a href="/clinica/admin_home/" class="menu-button">Admin Home</a></li>
         <li><a href="/conta/cadastrar_funcionario" class="menu-button">Novo Funcionário</a></li>
         <li><a href="/conta/cadastrar_paciente" class="menu-button">Novo Paciente</a></li>    
         <li><a href="/clinica/funcionarios" class="menu-button">Listar Funcionários</a></li>    
@@ -26,7 +26,7 @@
         <li><a href="/" class="menu-button">Listar Meus Agendamentos</a></li>
       {% endif %}
       {% if request.user.is_authenticated %}
-        <li><a href="/conta/logout" class="menu-button">Desconectar</a></li>
+        <li><a href="/clinica/admin_home/" class="menu-button">{{ request.user.username }}</a></li>
       {% endif %}
 
     </ul>
