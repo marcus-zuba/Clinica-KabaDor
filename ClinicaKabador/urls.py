@@ -21,6 +21,6 @@ from clinic.views import home, gallery
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('conta/', include('conta.urls', namespace='conta')),
-    path('', home, name='home'),
-    path('clinica/galeria/', gallery, name='gallery')
+    path('clinica/', include('clinic.urls', namespace='clinica')),
+    path('', home, name='home')
 ]

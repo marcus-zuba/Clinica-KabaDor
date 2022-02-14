@@ -9,7 +9,8 @@ urlpatterns = [
   # post views
   # path('login/', views.login_usuario, name='login'),
   path('', views.painel_usuario, name='painel_usuario'),
-  path('cadastrar/', views.cadastrar_usuario, name='cadastrar'),
+  path('cadastrar_funcionario/', views.cadastrar_funcionario, name='cadastrar_funcionario'),
+  path('cadastrar_paciente/', views.cadastrar_paciente, name='cadastrar_paciente'),
   path('login/', auth_views.LoginView.as_view(),name='login'),
   path('logout/', auth_views.LogoutView.as_view(), name='logout'),
   path('trocar_senha/',auth_views.PasswordChangeView.as_view(success_url="sucesso/"),name='password_change'),
