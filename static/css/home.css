@@ -95,10 +95,6 @@ nav {
   transition: transform 400ms ease-in-out;
 }
 
-#navbar{
-  display: flex;
-}
-
 nav ul {
   margin: 0;
   padding: 0;
