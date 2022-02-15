@@ -14,16 +14,16 @@
         <li><a href="/clinica/funcionarios" class="menu-button">Listar Funcionários</a></li>    
         <li><a href="/clinica/pacientes" class="menu-button">Listar Pacientes</a></li>    
         <li><a href="/clinica/enderecos" class="menu-button">Listar Endereços</a></li>
-        <li><a href="/" class="menu-button">Listar Todos os Agendamentos</a></li>
+        <li><a href="/clinica/agendamentos" class="menu-button">Listar Todos os Agendamentos</a></li>
       {% else %}
         <li><a href="/" class="menu-button">Home</a></li>
         <li><a href="/clinica/galeria" class="menu-button">Galeria</a></li>    
         <li><a href="/clinica/novo_endereco" class="menu-button">Novo Endereço</a></li>    
-        <li><a href="/clinica/agendamento" class="menu-button">Agendamento</a></li>    
+        <li><a href="/clinica/novo_agendamento" class="menu-button">Agendamento</a></li>    
         <li><a href="/conta/login" class="menu-button">Login</a></li>
       {% endif %}
       {% if request.user.is_authenticated and request.user.pessoa.funcionario.medico %}
-        <li><a href="/" class="menu-button">Listar Meus Agendamentos</a></li>
+        <li><a href="/clinica/meus_agendamentos" class="menu-button">Listar Meus Agendamentos</a></li>
       {% endif %}
       {% if request.user.is_authenticated %}
         <li><a href="/clinica/admin_home/" class="menu-button">{{ request.user.username }}</a></li>
