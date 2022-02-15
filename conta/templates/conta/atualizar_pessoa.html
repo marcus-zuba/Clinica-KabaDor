@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Atualizar informações pessoais{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+  <div class="form-group">
+    <h1>Atualizar informações pessoais{{ string }}</h1>
+    <p><strong>Obs: Caso queira atualizar suas informações de login ou informações profissionais,<br> entre em contato com o responsável pelo sistema na clínica.</strong></p>
+    <p>Utilize o formulário abaixo para atualizar suas informações pessoais:</p>
+    <form action="." method="post">
+      {{ form_pessoa.as_p }}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button class="login__submit" type="submit">Atualizar</button>
+    </form>
+  </div>  
+
+{% endblock %}

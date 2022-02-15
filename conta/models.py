@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import RegexValidator, MaxValueValidator
 from django.contrib.auth.models import User
+User._meta.get_field('email')._unique = True
 
 # Create your models here.
 

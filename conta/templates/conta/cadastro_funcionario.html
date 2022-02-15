@@ -23,11 +23,15 @@
     </select>
     {{ funcionario_form.as_p }}
     <div id="form-medico" hidden>
-      {{ medico_form.as_p }}    
+      <p><label for="id_especialidade">Especialidade:</label> 
+        <input type="text" name="especialidade" maxlength="50" required="" id="id_especialidade" disabled></p> 
+      <p><label for="id_crm">Crm:</label> 
+        <input type="number" name="crm" required="" id="id_crm" disabled></p>  
     </div>
     {% csrf_token %}
     <p><input type="submit" value="Cadastrar Funcionario"></p>
     </form>
   <div></div>
   <script src="{% static 'js/form.js' %}"></script>
+  <script src="{% static 'js/address.js' %}"></script>
 {% endblock %}

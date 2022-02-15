@@ -1,5 +1,7 @@
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .forms import NovoAgendamento
 from conta.forms import EnderecoRegistrationForm
 from conta.models import BaseDeEnderecos, Pessoa, Funcionario
 
@@ -35,8 +37,17 @@ def list_employees(request):
   return render(request, "clinic/employee.html", {'employees':employees,'doctors':doctors})
 
 def new_schedule(request):
-  return render(request, "clinic/new_schedule.html", {})
+  form = NovoAgendamento()
+  return render(request, "clinic/new_schedule.html", {'form':form})
 
 @login_required
 def admin_home_page(request):
   return render(request, "clinic/admin_home_page.html")
+
+def search_address(request):
+  cep = request.GET.get('cep')
+  endereco = BaseDeEnderecos.objects.filter(cep=cep)
+  if not endereco:
+    return HttpResponse("CEP não encontrado", status=404)
+  else:
+    return JsonResponse(list(endereco.values('cep','logradouro','bairro','cidade','estado')),safe=False)

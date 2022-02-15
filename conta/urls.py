@@ -6,9 +6,6 @@ from . import forms
 app_name = 'conta'
 
 urlpatterns = [
-  # post views
-  # path('login/', views.login_usuario, name='login'),
-  path('', views.painel_usuario, name='painel_usuario'),
   path('cadastrar_funcionario/', views.cadastrar_funcionario, name='cadastrar_funcionario'),
   path('cadastrar_paciente/', views.cadastrar_paciente, name='cadastrar_paciente'),
   path('login/', auth_views.LoginView.as_view(),name='login'),
@@ -19,5 +16,5 @@ urlpatterns = [
   path('redefinir_senha/sucesso/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
   path('redefinir/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='redefinir_senha_confirmacao'),
   path('redefinir/concluido/',auth_views.PasswordResetCompleteView.as_view(),name='redefinir_senha_concluido'),
-  path('atualizar/', views.atualizar_conta, name='atualizar_conta')
+  path('atualizar/', views.atualizar_pessoa, name='atualizar_pessoa')
 ]
