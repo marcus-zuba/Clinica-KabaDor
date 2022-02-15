@@ -9,6 +9,7 @@
   <div class="form-group">
     <h1>Página de agendamento</h1>
     <form action="." method="post">
+      
       {{ form.as_p }}
       {% csrf_token %}
       <p><input type="submit" id="submit-form" value="Realizar agendamento"></p>
