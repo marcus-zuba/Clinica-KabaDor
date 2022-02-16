@@ -17,7 +17,6 @@ body {
 
 .content {
   height: 200vh;
-  background-image: url(//unsplash.it/1000/1000);
   background-color: rgb(255, 255, 255);
   background-blend-mode: multiply;
   background-size: cover;
@@ -237,7 +236,7 @@ nav a:hover {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgb(255, 180, 19);
 }
 
 /* Caption text */
@@ -266,27 +265,21 @@ nav a:hover {
     padding-right: 2em;
 }
 
-#dotz{
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 15px;
   width: 15px;
-  background-color: #bbb;
+  background-color: rgba(167, 240, 215);
+  opacity: 0.5;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: rgb(255, 180, 19);
+  opacity: 1;
 }
 
 /* Fading animation */
