@@ -47,6 +47,6 @@ class Funcionario(models.Model):
 class Medico(models.Model):
   funcionario = models.OneToOneField(Funcionario, on_delete=models.CASCADE, related_name='medico')
   especialidade = models.CharField(max_length=50)
-  crm = models.IntegerField()
+  crm = models.IntegerField(unique=True)
   def __str__(self):
     return 'Médico {} de email {}'.format(self.funcionario.pessoa.nome, self.funcionario.pessoa.email)
