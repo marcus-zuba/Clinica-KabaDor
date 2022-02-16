@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Agendamentos{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/tabela.css/' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css/' %}">
+
+  <div class="central">
+  <h1>Agendamentos</h1>
+  {% if agendamentos %}
+    {% if todos %}
+      <p>Esses são todos os agendamentos cadastrados no sistema:</p>
+    {% else %}
+      <p>{{ request.user.pessoa.nome }}, esses são os seus agendamentos cadastrados no sistema:</p>
+    {% endif %}
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>Especialidade</th>
+        <th>Médico</th>
+        <th>Data</th>
+        <th>Horário</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for agendamento in agendamentos %}
+      <tr>
+        <td>{{agendamento.medico.especialidade}}</td>
+        <td>{{agendamento.medico.funcionario.pessoa.nome}}</td>
+        <td>{{agendamento.data}}</td>
+        <td>{{agendamento.horario}}</td>
+        <td>{{agendamento.nome}}</td>
+        <td>{{agendamento.email}}</td>
+        <td>{{agendamento.telefone}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    {% if todos %}
+      <p>Não há agendamentos cadastrados no sistema!</p>
+    {% else %}
+      <p>{{ request.user.pessoa.nome }}, não há nenhum agendamento seu no sistema!</p>
+    {% endif %}
+  {% endif %}
+  </div>
+{% endblock %}

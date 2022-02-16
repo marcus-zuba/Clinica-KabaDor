@@ -38,6 +38,10 @@ a{
 a:hover{
     cursor: pointer;
 }
+
+#id_data_day, #id_data_month, #id_data_year{
+    margin: 1%;
+}
   
 .button {
     border: #0fcea5 solid 1px;
@@ -81,6 +85,18 @@ a:hover{
     cursor: pointer;
 }
 
+#id_especialidade{
+    width: 60%;
+}
+
+#id_medico{
+    width: 60%;
+}
+
+#id_horario{
+    width: 80%;
+}
+
 select {
     width: 30%;
     cursor: pointer;
@@ -93,13 +109,6 @@ select {
     width: 50%;
     display: block;
     padding: .5em;
-}
-
-#finalizar-compra{
-    width: 100%;
-    font-family: 'Martel Sans', sans-serif;
-    font-weight: 600;
-    font-size: large;
 }
 
 input{

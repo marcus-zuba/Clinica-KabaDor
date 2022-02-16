@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from conta.models import BaseDeEnderecos, Pessoa, Paciente, Funcionario, Medico
+from clinic.dados_clinicos import TIPOS_SANGUINEOS, ESPECIALIDADES_MEDICAS
+import datetime
 
 class LoginForm(AuthenticationForm):
 
@@ -43,27 +45,23 @@ class PessoaCompletaRegistrationForm(forms.ModelForm):
     fields = ('nome', 'email', 'telefone', 'cep', 'logradouro', 'bairro', 'cidade', 'estado')
 
 class PacienteRegistrationForm(forms.ModelForm):
-  TIPOS_SANGUINEOS =(
-    ("A+", "A+"),
-    ("B+", "B+"),
-    ("AB+", "AB+"),
-    ("O+", "O+"),
-    ("A-", "A-"),
-    ("B-", "B-"),
-    ("AB-", "AB-"),
-    ("O-", "O-")
-  )
   tipo_sanguineo = forms.ChoiceField(choices=TIPOS_SANGUINEOS)
   class Meta:
     model = Paciente
     fields = ('peso', 'altura', 'tipo_sanguineo')
 
 class FuncionarioRegistrationForm(forms.ModelForm):
+  data_contrato = forms.DateField(widget=forms.SelectDateWidget(years=[2015,2016,2017,2018,2019,2020,2021,2022]), initial=datetime.date.today)
   class Meta:
     model = Funcionario
     fields = ('data_contrato', 'salario')
+  def clean(self):
+    data = self.cleaned_data["data_contrato"]
+    if data > datetime.date.today():
+      raise forms.ValidationError("A data não pode ser no futuro!")
 
 class MedicoRegistrationForm(forms.ModelForm):
+  especialidade = forms.ChoiceField(choices=ESPECIALIDADES_MEDICAS)
   class Meta:
     model = Medico
     fields = ('especialidade', 'crm')

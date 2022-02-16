@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'cpf_field',
     'conta',
     'django.contrib.admin',
     'django.contrib.auth',

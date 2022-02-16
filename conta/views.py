@@ -2,10 +2,9 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegistrationForm, EnderecoRegistrationForm
+from .forms import LoginForm, UserRegistrationForm
 from .forms import PessoaRegistrationForm, PessoaCompletaRegistrationForm, PacienteRegistrationForm
 from .forms import FuncionarioRegistrationForm, MedicoRegistrationForm
-from django.contrib import messages
 
 # Create your views here.
 
@@ -35,6 +34,7 @@ def atualizar_pessoa(request):
     form_pessoa = PessoaRegistrationForm(instance=request.user.pessoa)
   return render(request, 'conta/atualizar_pessoa.html', {'form_pessoa': form_pessoa})
 
+@login_required
 def cadastrar_funcionario(request):
   if request.method == 'POST':
     user_form = UserRegistrationForm(request.POST)
@@ -44,7 +44,10 @@ def cadastrar_funcionario(request):
       medico_form = MedicoRegistrationForm(request.POST)
       if (user_form.is_valid() and pessoa_form.is_valid() 
       and funcionario_form.is_valid() and medico_form.is_valid()):
-        novo_user = user_form.save()
+        novo_user = user_form.save(commit=False)
+        novo_user.set_password(user_form.cleaned_data['password'])
+        novo_user.save()
+        novo_user.refresh_from_db()
         nova_pessoa = pessoa_form.save(commit=False)
         nova_pessoa.usuario = novo_user
         nova_pessoa.email = novo_user.email
@@ -87,6 +90,7 @@ def cadastrar_funcionario(request):
     'funcionario_form':funcionario_form,
     'medico_form':medico_form})
 
+@login_required
 def cadastrar_paciente(request):
   if request.method == 'POST':
     pessoa_form = PessoaCompletaRegistrationForm(request.POST)
