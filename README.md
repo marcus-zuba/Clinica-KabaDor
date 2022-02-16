@@ -31,15 +31,12 @@ Após clonar o repositório, execute os seguintes passos na raiz do projeto:
 - Execute as migrations para que o seu banco de dados local seja criado (faça isso sempre para manter o seu banco atualizado)
     - `python manage.py migrate`
 
-- Popule o banco de dados com os dados do json
-    - `python manage.py loaddata dados.json`
+- Crie um usuário de administrador para acessar a parte privada da aplicação e o painel de admin do Django:
+    - `python manage.py createsuperuser`
 
 - Execute o server
     - `python manage.py runserver`
 
 - O projeto será hosteado e poderá ser acessado em [localhost:8000](http://localhost:8000)
 
-- Caso queira criar um usuário de administrador, basta executar:
-    - `python manage.py createsuperuser`
-    - Com esse usuário, você pode acessar [localhost:8000/admin](http://localhost:8000) 
-    e controlar diversos aspectos do projeto!  
+- Para acessar o painel de admin do Django, basta acessar [localhost:8000/admin](http://localhost:8000) 
