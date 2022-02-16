@@ -17,6 +17,10 @@
     {% csrf_token %}
     <p><input type="submit" value="Cadastrar paciente"></p>
     </form>
-  <div></div>
+  </div>
   <script src="{% static 'js/address.js' %}"></script>
+  <script>
+    $('#id_altura').attr('placeholder','Altura em cm')
+    $('#id_peso').attr('placeholder','Peso em kg')
+  </script>
 {% endblock %}

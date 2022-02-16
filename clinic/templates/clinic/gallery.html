@@ -5,8 +5,7 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
-
-
+<!-- <link rel="stylesheet" href="{% static 'css/home.css/' %}"> -->
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
@@ -17,29 +16,29 @@
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <div class="numbertext">1 / 5</div>
-    <img src="https://i.imgur.com/dbU5jXh.jpg" style="width:50%">
+    <img src="https://i.imgur.com/dbU5jXh.jpg">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 5</div>
-    <img src="https://i.imgur.com/3n5C9AL.jpg" style="width:50%">
+    <img src="https://i.imgur.com/3n5C9AL.jpg">
   </div>
 
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 5</div>
-    <img src="https://i.imgur.com/CsCRIq6.jpg" style="width:50%">
+    <img src="https://i.imgur.com/CsCRIq6.jpg">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">4 / 5</div>
-    <img src="https://i.imgur.com/yyfiaNV.png" style="width:50%">
+    <img src="https://i.imgur.com/yyfiaNV.png">
   </div>
 
 
   <div class="mySlides fade">
     <div class="numbertext">5 / 5</div>
-    <img src="https://i.imgur.com/j8k6Jax.png" style="width:50%">
+    <img src="https://i.imgur.com/j8k6Jax.png">
   </div>
   
 
@@ -57,9 +56,7 @@
   <span class="dot" onclick="currentSlide(5)"></span>
 </div>
 
-<footer>
-  <script src="{% static 'js/slide.js/' %}"></script>
-</footer>
+<script src="{% static 'js/slide.js/' %}"></script>
 
 {% endblock %}
 

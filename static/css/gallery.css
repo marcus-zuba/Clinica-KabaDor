@@ -2,9 +2,14 @@
 
 * {box-sizing:border-box}
 
+.mySlides img{
+  width: 800px;
+  height: 500px;
+}
+
 .slideshow-container {
+  margin-top: 0;
   position: relative;
-  margin: auto;
 }
 
 .mySlides {

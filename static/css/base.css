@@ -1,8 +1,18 @@
+html{
+    height: 100%;
+}
+
 body{
     color:#484849;
     font-family: 'Martel Sans', sans-serif;
-    margin:0;
     width: 100%;
+    margin-bottom: 50px;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .alert-info{
@@ -42,7 +52,32 @@ a:hover{
 #id_data_day, #id_data_month, #id_data_year{
     margin: 1%;
 }
-  
+
+#id_data_contrato_day, #id_data_contrato_month, #id_data_contrato_year{
+    margin: 1%;
+}
+
+footer{
+    background-color: rgb(81, 204, 163);;
+    color:white;
+    text-align: center;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.5%;
+    margin-top: auto;
+}
+
+footer h5{
+    margin: 0;
+}
+
+footer h6{
+    margin: 0;
+}
+
 .button {
     border: #0fcea5 solid 1px;
     background-color: white;
